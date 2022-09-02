@@ -1,0 +1,138 @@
+:root {
+  --primary: #26c6da;
+  --secondary: #000000;
+  --tertiary: #8a9597;
+  --quatrinary: #6c6b67;
+  --light: #e3e4e3;
+  --dark: #182c23;
+  --error: rgb(228, 46, 1);
+  --border-radius: 0.3rem;
+  --transparent: rgba(0, 0, 0, 0.7);
+}
+
+body {
+  font-family: Arial;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: flex-start;
+  background-color: var(--primary);
+  background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/b9a21791534383.5e341720a5140.jpg");
+  background-size: cover;
+}
+
+header {
+  text-align: start;
+  color: white;
+  background-color: var(--transparent)
+}
+
+/* main {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+} */
+
+#main-nav {
+  display: flex;
+  /* background-color: #3d48df */
+}
+
+#main-nav a {
+  color: var(--light);
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+
+#main-nav a:hover {
+  background-color: #168c9c;
+}
+
+aside {
+  flex: 0;
+  background-color: var(--tertiary);
+  padding: 80px;
+  text-align: left;
+  color: var(--light);
+}
+
+.tab-content {
+  border-left: 1px solid var(--primary);
+  border-right: 1px solid var(--primary);
+  border-bottom: 1px solid var(--primary);
+  border-radius: 0px 0px 7px 7px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5)
+}
+
+.nav-tabs {
+  margin-bottom: 0;
+  border-bottom: 1px solid var(--primary);
+}
+
+.nav-tabs .nav-link.active {
+  text-decoration: none;
+  background-color: var(--transparent);
+  border: 1px solid var(--primary);
+  color: white
+}
+
+.nav-tabs .nav-link {
+  text-decoration: none;
+  color: white
+}
+
+.profile-label {
+  width: 75px;
+}
+
+.form-edit {
+  justify-content: end;
+}
+
+.profile-input {
+  border-bottom: 1px solid #ced4da;
+  width: 300px;
+  transition: 0.2s all ease-in-out;
+}
+
+#profile-buttons {
+  transition: 2s all ease-in-out;
+  margin-left: 60px;
+}
+#profile-buttons button {
+  width: 150px;
+}
+
+#profile-bio {
+  width: 700px;
+  height: 100px;
+  resize: none;
+}
+
+#profile-bio:disabled {
+  border-bottom: #ced4da;
+}
+
+.col-form-label {
+  width: 75px;
+}
+
+i {
+  transition: 0.2s all ease-in-out;
+}
+
+#profile-pic {
+  cursor: pointer;
+  width: 250px;
+}
+
+#image-upload {
+  display: none;
+}
+
+.login-container{
+  height: 75vh
+}
