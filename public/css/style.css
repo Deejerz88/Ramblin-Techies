@@ -117,7 +117,7 @@ aside {
 }
 
 .col-form-label {
-  width: 75px;
+  width: 85px;
 }
 
 i {
@@ -127,10 +127,6 @@ i {
 #profile-pic {
   cursor: pointer;
   width: 250px;
-}
-
-#image-upload {
-  display: none;
 }
 
 .login-container{

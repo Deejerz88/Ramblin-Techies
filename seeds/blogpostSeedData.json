@@ -1,0 +1,9 @@
+[{
+  "title": "First Blogpost",
+  "content": "This is the content of the first blogpost",
+  "user_id": 1
+},{
+  "title": "Second Blogpost",
+  "content": "This is the content of the second blogpost",
+  "user_id": 2
+}]

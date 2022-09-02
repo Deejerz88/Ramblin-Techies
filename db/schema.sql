@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS rambling_techs;
+DROP DATABASE IF EXISTS ramblin_techies;
 
-CREATE DATABASE rambling_techs;
+CREATE DATABASE ramblin_techies;

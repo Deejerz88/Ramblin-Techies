@@ -2,13 +2,13 @@ const { Model, DataTypes } = require("sequelize");
 const bcrypt = require("bcrypt");
 const sequelize = require("../config/connection");
 
-class User extends Model {
+class Blogpost extends Model {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
 
-User.init(
+Blogpost.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -20,14 +20,21 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    author: {
-      type: DataTypes.STRING,
+    content: {
+      type: DataTypes.TEXT,
       allowNull: false,
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "user",
+        key: "id",
+      },
     },
   },
   {
-    hooks: {
-    },
+    hooks: {},
     sequelize,
     timestamps: true,
     freezeTableName: true,
@@ -36,4 +43,4 @@ User.init(
   }
 );
 
-module.exports = User;
+module.exports = Blogpost;
