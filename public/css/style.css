@@ -7,7 +7,7 @@
   --dark: #182c23;
   --error: rgb(228, 46, 1);
   --border-radius: 0.3rem;
-  --transparent: rgba(0, 0, 0, 0.7);
+  --transparent: rgba(0, 0, 0, 0.8);
 }
 
 body {
@@ -144,7 +144,7 @@ i {
   border-color: var(--primary);
 }
 
-.blog-img{
+.blog-img, .comment-img{
   width: 35px
 }
 
@@ -170,6 +170,6 @@ a{
 
 .blog-btn:hover{
   background-color: var(--primary);
-  color: white;
+  color: white
 }
 

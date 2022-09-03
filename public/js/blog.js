@@ -4,12 +4,14 @@ commentBtn.click(function () {
   console.log("commentBtn", commentBtn);
   const userId = commentBtn.data("user");
   const blogId = commentBtn.data("blog");
+  
   console.log(blogId);
-  const comment = $("#comment").val();
+  const content = $("#comment").val();
   const commentData = {
-    comment,
+    content,
     user_id: userId,
   };
+  console.log('commentData', commentData);
   fetch(`/blog/${blogId}`, {
     method: "PUT",
     body: JSON.stringify({ data: { commentData } }),
@@ -17,5 +19,9 @@ commentBtn.click(function () {
       "Content-Type": "application/json",
     },
   });
-  $(".comments").append('<p>comment here</p><hr class="blog-hr">');
+  $(".comments").append(
+    `<img class='comment-img img-fluid' src="/images/uploads/profile-${userId}.jpg" <p>${content}</p><hr class="blog-hr">`
+  );
 });
+
+//<img src="/images/uploads/profile-${userId}.jpg" 

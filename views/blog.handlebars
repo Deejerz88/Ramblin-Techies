@@ -47,22 +47,27 @@
           <hr class="blog-hr" />
         {{/each}}
       </div>
+      {{#if loggedIn}}
+
       <textarea
         class="form-control mb-3"
         id="comment"
         rows="3"
         placeholder="Write Comment Here..."
       ></textarea>
-
       <button
         data-user="{{userId}}"
         data-blog="{{blog.id}}"
         id="comment-btn"
         class="btn blog-btn"
       >
-        Leave a Comment
+        Leave Comment
       </button>
-    </div>
+      {{else}}
+      <a href="/login" class="btn blog-btn">
+        Login to Comment
+      </a>
+      {{/if}}
   </div>
 </div>
 <script

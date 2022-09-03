@@ -33,7 +33,7 @@ Blogpost.init(
       },
     },
     comments: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT("long"),
       get: function () {
         return JSON.parse(this.getDataValue("comments"));
       },
