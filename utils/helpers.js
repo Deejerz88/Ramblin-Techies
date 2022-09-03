@@ -9,5 +9,8 @@ module.exports = {
   },
   check_id: (profileId, userId) => {
     return profileId === userId;
+  },
+  parse_comments: (comments) => {
+    return JSON.parse(comments);
   }
 };

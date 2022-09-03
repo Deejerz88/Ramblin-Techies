@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { User, Blogpost } = require("../models");
+const { DateTime } = require("luxon");
 
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
@@ -12,17 +13,18 @@ router.get("/login", (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-    const userData = await User.findAll({
-      raw: true,
-      attributes: { exclude: ["password"] },
-      order: [["name", "ASC"]],
-    });
-
     const blogs = await Blogpost.findAll({
       raw: true,
     });
 
-    console.log("userData", userData, "blogs", blogs);
+    blogs.forEach(async (blog) => {
+      blog.updatedAt = DateTime.fromJSDate(blog.updatedAt).toLocaleString(DateTime.DATETIME_MED)
+      console.log(blog.user_id)
+      const author = await User.findByPk(blog.user_id, { raw: true });
+      blog.author = author.name
+    });
+
+    console.log(blogs[0])
     req.session.save(() => {
       if (req.session.countVisit) {
         req.session.countVisit++;
@@ -30,7 +32,6 @@ router.get("/", async (req, res) => {
         req.session.countVisit = 1;
       }
       res.render("homepage", {
-        userData,
         blogs,
         loggedIn: req.session.loggedIn,
         countVisit: req.session.countVisit,
@@ -40,6 +41,6 @@ router.get("/", async (req, res) => {
     console.log(err);
     res.status(500).json(err);
   }
-});
+})
 
 module.exports = router;

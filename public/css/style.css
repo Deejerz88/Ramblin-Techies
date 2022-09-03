@@ -132,3 +132,44 @@ i {
 .login-container{
   height: 75vh
 }
+
+.blogpost, .comments-card{
+  background-color: var(--transparent);
+  border-radius: var(--border-radius);
+  border-color: var(--primary);
+  color: white;
+}
+
+.blog-hr{
+  border-color: var(--primary);
+}
+
+.blog-img{
+  width: 35px
+}
+
+a{
+  text-decoration: none;
+}
+
+.blog-img + p{
+  display: inline
+}
+
+.truncate {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.blog-btn{
+  border-color: var(--primary);
+  color:white;
+}
+
+.blog-btn:hover{
+  background-color: var(--primary);
+  color: white;
+}
+

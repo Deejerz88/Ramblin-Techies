@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require("sequelize");
+const { Model, DataTypes, Sequelize } = require("sequelize");
 const bcrypt = require("bcrypt");
 const sequelize = require("../config/connection");
 
@@ -31,6 +31,16 @@ Blogpost.init(
         model: "user",
         key: "id",
       },
+    },
+    comments: {
+      type: DataTypes.STRING,
+      get: function () {
+        return JSON.parse(this.getDataValue("comments"));
+      },
+      set: function (val) {
+        return this.setDataValue("comments", JSON.stringify(val));
+      },
+      allowNull: true,
     },
   },
   {
