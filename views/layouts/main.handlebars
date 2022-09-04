@@ -28,10 +28,10 @@
         <a href="/">
           Home
         </a>
-        <a href="/profile">
+        {{#if loggedIn}}
+        <a href="/dashboard/{{userId}}">
           Dashboard
         </a>
-        {{#if loggedIn}}
           <button id="logout" class="btn-no-style">
             Logout
           </button>
@@ -44,15 +44,9 @@
     </header>
 
     <main class="p-3">
-      {{! <aside>
-        <h2>
-          Shannon Test!
-        </h2>
-      </aside> }}
-      {{! <div class=""> }}
       {{{body}}}
-      {{! </div> }}
     </main>
+
     {{#if loggedIn}}
       <script src="/js/logout.js"></script>
     {{/if}}

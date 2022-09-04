@@ -1,4 +1,13 @@
 [
+    {
+    "name": "Spence",
+    "password": "2299wgrandrover",
+    "email": "spence@playmakers.com",
+    "github": "",
+    "linkedin": "",
+    "slack": "",
+    "bio": "I do different things."
+  },
   {
     "name": "DJ",
     "password": "Georgiatech1208!",
@@ -7,14 +16,6 @@
     "linkedin": "dj-mcmillan",
     "slack": "Deejerz88",
     "bio": "I do things."
-  },
-  {
-    "name": "Spence",
-    "password": "2299wgramdrover",
-    "email": "spence@playmakers.com",
-    "github": "",
-    "linkedin": "",
-    "slack": "",
-    "bio": "I do different things."
   }
+
 ]

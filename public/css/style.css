@@ -25,7 +25,7 @@ body {
 header {
   text-align: start;
   color: white;
-  background-color: var(--transparent)
+  background-color: var(--transparent);
 }
 
 /* main {
@@ -64,7 +64,7 @@ aside {
   border-bottom: 1px solid var(--primary);
   border-radius: 0px 0px 7px 7px;
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.5)
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .nav-tabs {
@@ -76,12 +76,12 @@ aside {
   text-decoration: none;
   background-color: var(--transparent);
   border: 1px solid var(--primary);
-  color: white
+  color: white;
 }
 
 .nav-tabs .nav-link {
   text-decoration: none;
-  color: white
+  color: white;
 }
 
 .profile-label {
@@ -93,9 +93,13 @@ aside {
 }
 
 .profile-input {
-  border-bottom: 1px solid #ced4da;
+  border-bottom: 1px solid var(--primary);
   width: 300px;
   transition: 0.2s all ease-in-out;
+}
+
+.profile-input:disabled {
+  color: white;
 }
 
 #profile-buttons {
@@ -109,11 +113,11 @@ aside {
 #profile-bio {
   width: 700px;
   height: 100px;
-  resize: none;
 }
 
 #profile-bio:disabled {
   border-bottom: #ced4da;
+  resize: 'none'
 }
 
 .col-form-label {
@@ -129,31 +133,38 @@ i {
   width: 250px;
 }
 
-.login-container{
-  height: 75vh
+.login-container {
+  height: 75vh;
 }
 
-.blogpost, .comments-card{
+.blogpost,
+.comments-card,
+#prof-container {
   background-color: var(--transparent);
   border-radius: var(--border-radius);
   border-color: var(--primary);
   color: white;
 }
 
-.blog-hr{
+.blog-hr {
   border-color: var(--primary);
 }
 
-.blog-img, .comment-img{
-  width: 35px
+.blog-img,
+.comment-img {
+  width: 35px;
 }
 
-a{
+.comment-img{
+  display:block
+}
+
+a {
   text-decoration: none;
 }
 
-.blog-img + p{
-  display: inline
+.blog-img + p {
+  display: inline;
 }
 
 .truncate {
@@ -163,13 +174,18 @@ a{
   text-overflow: ellipsis;
 }
 
-.blog-btn{
+.blog-btn {
   border-color: var(--primary);
-  color:white;
+  color: white;
 }
 
-.blog-btn:hover{
+.blog-btn:hover {
   background-color: var(--primary);
-  color: white
+  color: white;
 }
+
+.comment-user{
+  width: 100px
+}
+
 

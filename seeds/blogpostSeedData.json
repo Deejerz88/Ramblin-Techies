@@ -1,19 +1,12 @@
-[{
-  "title": "First Blogpost",
-  "content": "This is the content of the first blogpost",
-  "user_id": 1,
-  "comments":[
-    {
-      "content": "This is a comment",
-      "user_id": 2
-    },
-    {
-      "content": "This is another comment",
-      "user_id": 3
-    }
-  ]
-},{
-  "title": "Second Blogpost",
-  "content": "This is the content of the second blogpost",
-  "user_id": 2
-}]
+[
+  {
+    "title": "First Blogpost",
+    "content": "This is the content of the first blogpost",
+    "comment_ids": [1, 3]
+  },
+  {
+    "title": "Second Blogpost",
+    "content": "This is the content of the second blogpost",
+    "comment_ids": [2]
+  }
+]

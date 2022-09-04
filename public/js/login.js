@@ -13,10 +13,15 @@ const loginFormHandler = async (event) => {
       headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
-      // If successful, redirect the browser to the profile page
-      const data = await response.json()
+      // If successful, redirect the browser to the dashboard page
+      const data = await response.json();
       const id = data.user.id;
-      document.location.replace(`/profile/${id}`);
+      const blogId = window.location.search.split("=")[1] || null;
+      if (blogId) {
+        document.location.replace(`/blog/${blogId}`);
+      } else {
+        document.location.replace(`/dashboard/${id}`);
+      }
     } else {
       alert("Incorrect email or password. Please try again!");
     }
@@ -40,7 +45,7 @@ const signupFormHandler = async (event) => {
     if (response.ok) {
       const data = await response.json();
       const id = data.id;
-      document.location.replace(`/profile/${id}`);
+      document.location.replace(`/dashboard/${id}`);
     } else {
       alert("User already exists. Please try again!");
     }

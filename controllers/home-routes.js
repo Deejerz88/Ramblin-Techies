@@ -3,8 +3,14 @@ const { User, Blogpost } = require("../models");
 const { DateTime } = require("luxon");
 
 router.get("/login", (req, res) => {
+  const { blogId } = req.query || null;
+
   if (req.session.logged_in) {
-    res.redirect("/");
+    if (blogId) {
+      res.redirect(`/blogpost/${blogId}`);
+    } else {
+      res.redirect("/");
+    }
     return;
   }
 
@@ -18,13 +24,15 @@ router.get("/", async (req, res) => {
     });
 
     blogs.forEach(async (blog) => {
-      blog.updatedAt = DateTime.fromJSDate(blog.updatedAt).toLocaleString(DateTime.DATETIME_MED)
-      console.log(blog.user_id)
+      blog.updatedAt = DateTime.fromJSDate(blog.updatedAt).toLocaleString(
+        DateTime.DATETIME_MED
+      );
+      console.log(blog.user_id);
       const author = await User.findByPk(blog.user_id, { raw: true });
-      blog.author = author.name
+      blog.author = author.name;
     });
 
-    console.log(blogs[0])
+    console.log(blogs[0]);
     req.session.save(() => {
       if (req.session.countVisit) {
         req.session.countVisit++;
@@ -34,6 +42,7 @@ router.get("/", async (req, res) => {
       res.render("homepage", {
         blogs,
         loggedIn: req.session.loggedIn,
+        userId: req.session.userId,
         countVisit: req.session.countVisit,
       });
     });
@@ -41,6 +50,6 @@ router.get("/", async (req, res) => {
     console.log(err);
     res.status(500).json(err);
   }
-})
+});
 
 module.exports = router;

@@ -10,14 +10,14 @@
           <h3 class="card-title">
             {{blog.title}}
           </h3>
-          <a href="/profile/{{blog.user_id}}">
+          <a href="/dashboard/{{blog.user_id}}">
             <img
               class="blog-img"
               src="/images/uploads/profile-{{blog.user_id}}.jpg"
             />
             <p class="card-text align-bottom">
               <small class="text-muted">
-                 {{blog.author}}
+                {{blog.author}}
               </small>
             </p>
           </a>
@@ -26,7 +26,9 @@
         <p class="m-3 truncate card-text">
           {{blog.content}}
         </p>
-        <div class="d-flex container-fluid justify-content-between align-items-end">
+        <div
+          class="d-flex container-fluid justify-content-between align-items-end"
+        >
           <a href="/blog/{{blog.id}}" class="btn blog-btn">
             Read More
           </a>

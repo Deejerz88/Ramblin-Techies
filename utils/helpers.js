@@ -1,3 +1,5 @@
+const { DateTime } = require("luxon");
+
 module.exports = {
   format_time: (date) => {
     return date.toLocaleTimeString();
@@ -7,10 +9,20 @@ module.exports = {
       new Date(date).getFullYear() + 5
     }`;
   },
-  check_id: (profileId, userId) => {
-    return profileId === userId;
+  check_id: (dashboardId, userId) => {
+    return dashboardId === userId;
   },
   parse_comments: (comments) => {
-    return JSON.parse(comments);
-  }
+    console.log(">>>>helper comments", comments);
+    comments = comments.map((comment) => {
+      return {
+        ...comment,
+        createdAt: DateTime.fromJSDate(comment.createdAt).toLocaleString(
+          DateTime.DATETIME_SHORT_WITH_SECONDS
+        ).replace(',','<br/>'),
+        user: { name: comment["user.name"], id: comment["user.id"] },
+      };
+    });
+    return comments;
+  },
 };

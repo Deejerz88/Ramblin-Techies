@@ -2,26 +2,52 @@ commentBtn = $("#comment-btn");
 
 commentBtn.click(function () {
   console.log("commentBtn", commentBtn);
-  const userId = commentBtn.data("user");
+  const user = commentBtn.data("user");
   const blogId = commentBtn.data("blog");
-  
+  const userId = user.id;
+  const now = new Date().toLocaleString().replace(",", "<br/>");
+
+  console.log("user", typeof user);
+
   console.log(blogId);
   const content = $("#comment").val();
   const commentData = {
     content,
     user_id: userId,
+    blogpost_id: blogId,
   };
-  console.log('commentData', commentData);
-  fetch(`/blog/${blogId}`, {
-    method: "PUT",
-    body: JSON.stringify({ data: { commentData } }),
+  console.log("commentData", commentData);
+  fetch(`/api/comments`, {
+    method: "POST",
+    body: JSON.stringify({  commentData  }),
     headers: {
       "Content-Type": "application/json",
     },
   });
+
   $(".comments").append(
-    `<img class='comment-img img-fluid' src="/images/uploads/profile-${userId}.jpg" <p>${content}</p><hr class="blog-hr">`
+    `<div class="container-fluid">
+          <div class="row">
+          <div class="col-1 comment-user p-0">
+            <img
+              class="comment-img mx-auto"
+              src="/images/uploads/profile-${user.id}.jpg"
+            />
+            <p class="mb-0 comment-author text-center">
+              ${user.name}
+            </p>
+            <p class="text-center"><small class='text-muted'>${now}</small></p>
+          </div>
+          <div class="col-11">
+            <p>
+              ${content}
+            </p>
+            </div>
+          </div>
+        </div>
+        <hr class="blog-hr" />`
   );
+  $("#comment").val("");
 });
 
-//<img src="/images/uploads/profile-${userId}.jpg" 
+//<img src="/images/uploads/profile-${userId}.jpg"

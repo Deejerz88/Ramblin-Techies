@@ -19,29 +19,22 @@ const enableEdit = () => {
     input.toggleClass("form-control-plaintext");
     input.toggleClass("form-control");
 
-    // input.removeAttribute("disabled");
-
-    // input.classList.toggle("form-control-plaintext");
-    // input.classList.toggle("form-control");
   });
   buttonEl.prop("hidden", false);
   editIcon.prop("hidden", true);
 
-  // buttonEl.removeAttribute("hidden");
-  // editIcon.setAttribute("hidden", true);
-  // bioEl.style.resize = 'both'
 };
 
 const disableEdit = () => {
   $(".profile-input").each(function (i) {
     const input = $(this);
-    input.prop("disabled");
+    input.prop("disabled", true);
     input.toggleClass("form-control-plaintext");
     input.toggleClass("form-control");
   });
   buttonEl.prop("hidden", true);
   editIcon.prop("hidden", false);
-  // bioEl.style.resize = "none";
+  bioEl.css("resize", "vertical")
 };
 
 const profileEditHandler = async (event) => {
@@ -114,7 +107,7 @@ const profilePicHandler = async (event) => {
   if (action === "Cancel") {
     imageEl.attr("src", originalImg);
     uploadBtns.prop("hidden", true);
-    uploadEl.replaceWith(uploadEl.val('').clone())
+    uploadEl.replaceWith(uploadEl.val("").clone());
     uploadEl = $("#image-upload").on("change", () => previewProfileImage());
     return;
   }
