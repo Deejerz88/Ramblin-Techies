@@ -8,6 +8,7 @@ const bioEl = $("#profile-bio");
 const imageEl = $("#profile-pic");
 const uploadBtns = $("#upload-btns");
 const linkedinEl = $("#profile-linkedin");
+const createEl = $("#create-post");
 
 let uploadEl = $("#image-upload");
 let name, email, github, slack, bio, originalImg, newImg;
@@ -18,11 +19,9 @@ const enableEdit = () => {
     input.prop("disabled", false);
     input.toggleClass("form-control-plaintext");
     input.toggleClass("form-control");
-
   });
   buttonEl.prop("hidden", false);
   editIcon.prop("hidden", true);
-
 };
 
 const disableEdit = () => {
@@ -34,7 +33,6 @@ const disableEdit = () => {
   });
   buttonEl.prop("hidden", true);
   editIcon.prop("hidden", false);
-  bioEl.css("resize", "vertical")
 };
 
 const profileEditHandler = async (event) => {
@@ -104,7 +102,10 @@ const previewProfileImage = () => {
 const profilePicHandler = async (event) => {
   event.preventDefault();
   const action = event.target.textContent;
+  uploadBtns.prop("hidden", true);
+  console.log("action", action);
   if (action === "Cancel") {
+    console.log("originalImg", originalImg);
     imageEl.attr("src", originalImg);
     uploadBtns.prop("hidden", true);
     uploadEl.replaceWith(uploadEl.val("").clone());
@@ -119,6 +120,8 @@ const profilePicHandler = async (event) => {
   });
 };
 
+const createPostHandler = async (event) => {};
+
 uploadBtns.on("click", profilePicHandler);
 imageEl.on("click", () => uploadEl.click());
 uploadEl.on("change", () => previewProfileImage());
@@ -126,3 +129,4 @@ uploadEl.on("change", () => previewProfileImage());
 $("#profile-form").on("submit", profileEditHandler);
 $("#edit-icon").on("click", enableEditHandler);
 $("#cancel-profile").on("click", cancelEditHandler);
+$("#create-post").on("click", createPostHandler);

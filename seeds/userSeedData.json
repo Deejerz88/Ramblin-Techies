@@ -1,20 +1,20 @@
 [
     {
-    "name": "Spence",
-    "password": "2299wgrandrover",
-    "email": "spence@playmakers.com",
-    "github": "",
-    "linkedin": "",
-    "slack": "",
+    "name": "Billy",
+    "password": "password123",
+    "email": "billy@email.com",
+    "github": "billy123",
+    "linkedin": "Billy.Bob",
+    "slack": "BillyBob123",
     "bio": "I do different things."
   },
   {
-    "name": "DJ",
-    "password": "Georgiatech1208!",
-    "email": "djmcmillan93@gmail.com",
-    "github": "Deejerz88",
-    "linkedin": "dj-mcmillan",
-    "slack": "Deejerz88",
+    "name": "Sue",
+    "password": "passworde321",
+    "email": "sue@email.com",
+    "github": "sue321",
+    "linkedin": "sue.marie",
+    "slack": "SueMarie321",
     "bio": "I do things."
   }
 

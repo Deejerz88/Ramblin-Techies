@@ -1,38 +1,51 @@
 {{#with userData}}
-  <div
-    id="prof-container"
-    class="container-fluid border p-3 rounded"
-  >
+  <div id="prof-container" class="container-fluid border p-3 rounded">
     <div class="row w-100">
-      <div class="col-3">
-        <img id='profile-pic' class="rounded mx-3 mb-3" onerror="this.onerror=null; this.src='https://via.placeholder.com/250'" src='/images/uploads/profile-{{id}}.jpg' alt="" />
-        <input id="image-upload" type="file" 
-       name="profile_photo" placeholder="Photo" required="" hidden capture>
-       <div id='upload-btns' class="mx-auto w-50" hidden>
-       <button class="btn btn-success" id="img-save">Save</button>
-       <button class="btn btn-danger" id="img-cancel">Cancel</button>
-       </div>
+      <div id='profile-image' class="col-2">
+        <img
+          id="profile-pic"
+          class="img-fluid rounded mb-3"
+          onerror="this.onerror=null; this.src='https://via.placeholder.com/250'"
+          src="/images/uploads/profile-{{id}}.jpg"
+          alt=""
+        />
+        <input
+          id="image-upload"
+          type="file"
+          name="profile_photo"
+          placeholder="Photo"
+          required=""
+          hidden
+          capture
+        />
+        <div id="upload-btns" class="w-50 mx-auto" hidden>
+          <button class="btn blog-btn" id="img-save">Save</button>
+          <button class="btn blog-btn" id="img-cancel">Cancel</button>
+        </div>
       </div>
-      <div class="col-8 mt-2">
-        <form id="profile-form" class="container align-items-start">
+      <div id='profile-info' class="col-8">
+        <form id="profile-form" class="align-items-start">
+          <div class="row mb-3">
+            <label class="col-2 col-form-label" for="profile-name">
+              <b>Name:</b>
+            </label>
+            <div class="col">
+              <input
+                type="text"
+                class="form-control-plaintext profile-input"
+                id="profile-name"
+                placeholder="Enter name"
+                value="{{name}}"
+                disabled
+              />
+            </div>
+          </div>
 
           <div class="row mb-3">
-            <label class="col-2 col-form-label" for="profile-name"><b>Name: </b></label>
+            <label class="col-2 col-form-label" for="profile-email">
+              <b>Email:</b>
+            </label>
             <div class="col">
-            <input
-              type="text"
-              class="form-control-plaintext profile-input"
-              id="profile-name"
-              placeholder="Enter name"
-              value="{{name}}"
-              disabled
-            />
-            </div>
-            </div>
-
-            <div class="row mb-3">
-              <label class="col-2 col-form-label" for="profile-email"><b>Email: </b></label>
-              <div class="col">
               <input
                 type="text"
                 class="form-control-plaintext profile-input"
@@ -41,12 +54,14 @@
                 value="{{email}}"
                 disabled
               />
-              </div>
             </div>
+          </div>
 
-            <div class="row mb-3">
-              <label class="col-2 col-form-label" for="profile-github"><b>Github: </b></label>
-              <div class="col">
+          <div class="row mb-3">
+            <label class="col-2 col-form-label" for="profile-github">
+              <b>Github:</b>
+            </label>
+            <div class="col">
               <input
                 type="text"
                 class="form-control-plaintext profile-input"
@@ -55,12 +70,14 @@
                 value="{{github}}"
                 disabled
               />
-              </div>
             </div>
+          </div>
 
-            <div class="row mb-3">
-              <label class="col-2 col-form-label" for="profile-slack"><b>Slack: </b></label>
-              <div class="col">
+          <div class="row mb-3">
+            <label class="col-2 col-form-label" for="profile-slack">
+              <b>Slack:</b>
+            </label>
+            <div class="col">
               <input
                 type="text"
                 class="form-control-plaintext profile-input"
@@ -69,12 +86,14 @@
                 value="{{slack}}"
                 disabled
               />
-              </div>
             </div>
+          </div>
 
-            <div class="row mb-3">
-              <label class="col-2 col-form-label" for="profile-linkedin"><b>LinkedIn: </b></label>
-              <div class="col">
+          <div class="row mb-3">
+            <label class="col-2 col-form-label" for="profile-linkedin">
+              <b>LinkedIn:</b>
+            </label>
+            <div class="col">
               <input
                 type="text"
                 class="form-control-plaintext profile-input"
@@ -83,55 +102,74 @@
                 value="{{linkedin}}"
                 disabled
               />
-              </div>
             </div>
+          </div>
 
-            <div class="row mb-3">
-              <label class="col-2 col-form-label" for="profile-bio"><b>Bio: </b></label>
-              <div class="col">
+          <div class="row mb-3">
+            <label class="col-2 col-form-label" for="profile-bio">
+              <b>Bio:</b>
+            </label>
+            <div class="col">
               <textarea
                 type="textarea"
-                class="form-control-plaintext profile-input"
+                rows="4"
+                class="form-control-plaintext profile-input w-100"
                 id="profile-bio"
                 placeholder="Tell us about yourself!"
                 disabled
               >{{bio}}</textarea>
-              </div>
             </div>
+          </div>
 
-
-            <div id='profile-buttons' class="row" hidden>
-              <button type="submit" class="col btn btn-success m-3">Apply</button>
-              <button id="cancel-profile" class='col btn btn-danger m-3' >Cancel</button>
-              
-            </div>
-            
-
-          </form>
+          <div id="profile-buttons" class="row w-50" hidden>
+            <button type="submit" class="col btn blog-btn m-3">Apply</button>
+            <button id="cancel-profile" class="col btn blog-btn m-3">Cancel</button>
+          </div>
+        </form>
       </div>
-      {{/with}}
+{{/with}}
 
-      <div class="col-1 p-0">
+      <div class="edit-col justify-self-end col pe-2">
         <div class="text-end">
           {{#if (check_id userData.id userId)}}
-          <i id='edit-icon' class="bi bi-pencil-square"></i>
+            <i id="edit-icon" class="bi bi-pencil-square"></i>
           {{/if}}
         </div>
       </div>
     </div>
-    <div class="m-3 p-3 justify-content-center text-center row">
-      <hr/>
-      <h2>Blog Posts</h2>
-        {{#if (check_id userData.id userId)}}
-          <button id='create-post' class="w-25 btn blog-btn">New Post</button>
-        {{/if}}
+    <div class="m-3 p-3 justify-content-center row">
+      <hr />
+      <h2 class="text-center">Blog Posts</h2>
+      {{#if (check_id userData.id userId)}}
+        <button type="button" id="create-post" data-bs-toggle="modal" data-bs-target="#newBlogModal" class="w-25 mb-3 btn blog-btn">New Post</button>
+      {{/if}}
+      {{#each userData.blogs as |blog|}}
+        {{log blog}}
+        <div class="blogpost card mb-3">
+          <div class="card-body">
+            <div class="container-fluid d-flex justify-content-start">
+              <h3 class="card-title">
+                {{blog.title}}
+              </h3>
+            </div>
+            <hr class="blog-hr" />
+            <p class="m-3 truncate card-text">
+              {{blog.content}}
+            </p>
+            <div
+              class="d-flex container-fluid justify-content-between align-items-end"
+            >
+              <a href="/blog/{{blog.id}}" class="btn blog-btn">Read More</a>
+              <p class="card-text">
+                <small class="text-muted">-Updated: {{blog.updatedAt}}</small>
+              </p>
+            </div>
+          </div>
+        </div>
+      {{/each}}
     </div>
   </div>
   {{#if (check_id userData.id userId)}}
-      <script
-      src="https://code.jquery.com/jquery-3.6.1.min.js"
-      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-      crossorigin="anonymous"
-    ></script>
-      <script src="/js/dashboard.js"></script>
-{{/if}}
+
+    <script src="/js/dashboard.js"></script>
+  {{/if}}

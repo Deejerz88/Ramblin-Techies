@@ -43,14 +43,17 @@
         <div class="container-fluid">
           <div class="row">
           <div class="col-1 comment-user p-0">
+        <a href="/dashboard/{{comment.user_id}}">
+
             <img
               class="comment-img mx-auto"
               src="/images/uploads/profile-{{comment.user_id}}.jpg"
             />
-            <p class="mb-0 comment-author text-center">
+            <p class="text-light mb-0 comment-author text-center">
               {{comment.user.name}}
             </p>
             <p class="text-center"><small class='text-muted'>{{{comment.createdAt}}}</small></p>
+            </a>
           </div>
           <div class="col-11">
             <p>
@@ -85,9 +88,4 @@
       {{/if}}
   </div>
 </div>
-<script
-  src="https://code.jquery.com/jquery-3.6.1.min.js"
-  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-  crossorigin="anonymous"
-></script>
 <script src="/js/blog.js"></script>

@@ -104,20 +104,18 @@ aside {
 
 #profile-buttons {
   transition: 2s all ease-in-out;
-  margin-left: 60px;
+  margin-left: 75px;
 }
 #profile-buttons button {
   width: 150px;
 }
 
 #profile-bio {
-  width: 700px;
-  height: 100px;
+  resize: none;
 }
 
 #profile-bio:disabled {
-  border-bottom: #ced4da;
-  resize: 'none'
+  border-bottom: none;
 }
 
 .col-form-label {
@@ -131,6 +129,10 @@ i {
 #profile-pic {
   cursor: pointer;
   width: 250px;
+  display: block;
+}
+#profile-image {
+  transition: 0.2s all ease-in-out;
 }
 
 .login-container {
@@ -139,7 +141,8 @@ i {
 
 .blogpost,
 .comments-card,
-#prof-container {
+#prof-container,
+.modal-content {
   background-color: var(--transparent);
   border-radius: var(--border-radius);
   border-color: var(--primary);
@@ -155,8 +158,8 @@ i {
   width: 35px;
 }
 
-.comment-img{
-  display:block
+.comment-img {
+  display: block;
 }
 
 a {
@@ -184,8 +187,47 @@ a {
   color: white;
 }
 
-.comment-user{
-  width: 100px
+.comment-user {
+  width: 100px;
 }
 
+.modal-header {
+  border-bottom: 1px solid var(--primary);
+}
 
+.modal-footer {
+  border-top: 1px solid var(--primary);
+}
+
+.dash-img-col {
+  width: 100px;
+}
+/* 
+#profile-img{
+  width: 300px
+} */
+/* @media screen and (min-width: 768px) {
+  #profile-image{
+    width: 25%
+  }
+  
+} */
+
+
+@media screen and (min-width: 1000px) {
+  #profile-image {
+    width: 20%;
+  }
+
+@media screen and (min-width: 1600px) {
+  #profile-image {
+    width: 13%;
+  }
+}
+
+@media screen and (min-width: 2350px) {
+  #profile-image {
+    width: 10%;
+  }
+}
+}

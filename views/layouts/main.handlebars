@@ -29,9 +29,9 @@
           Home
         </a>
         {{#if loggedIn}}
-        <a href="/dashboard/{{userId}}">
-          Dashboard
-        </a>
+          <a href="/dashboard/{{userId}}">
+            Dashboard
+          </a>
           <button id="logout" class="btn-no-style">
             Logout
           </button>
@@ -43,6 +43,11 @@
       </nav>
     </header>
 
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
     <main class="p-3">
       {{{body}}}
     </main>
@@ -50,7 +55,52 @@
     {{#if loggedIn}}
       <script src="/js/logout.js"></script>
     {{/if}}
-
+    <div
+      class="modal fade"
+      id="newBlogModal"
+      tabindex="-1"
+      aria-labelledby="newBlogModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="newBlogModalLabel">
+              New Blogpost
+            </h5>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="blog-title" class="col-form-label">
+                  Title:
+                </label>
+                <input type="text" class="form-control" id="blog-title" />
+              </div>
+              <div class="mb-3">
+                <label for="blog-content" class="col-form-label">
+                  Content:
+                </label>
+                <textarea class="form-control" id="blog-content"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn blog-btn"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button id='create-blog' type="button" class="btn blog-btn">
+              Create Blogpost
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/js/main.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"

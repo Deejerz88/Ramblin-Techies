@@ -21,6 +21,7 @@ router.get("/", async (req, res) => {
   try {
     const blogs = await Blogpost.findAll({
       raw: true,
+      order: [["updatedAt", "DESC"]],
     });
 
     blogs.forEach(async (blog) => {
