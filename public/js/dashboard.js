@@ -5,13 +5,13 @@ const slackEl = $("#profile-slack");
 const buttonEl = $("#profile-buttons");
 const editIcon = $("#edit-icon");
 const bioEl = $("#profile-bio");
-const imageEl = $("#profile-pic");
+const imageEl = $(".profile-pic");
 const uploadBtns = $("#upload-btns");
 const linkedinEl = $("#profile-linkedin");
 const createEl = $("#create-post");
 
 let uploadEl = $("#image-upload");
-let name, email, github, slack, bio, originalImg, newImg;
+let name, email, github, slack, linkedin, bio, originalImg, newImg;
 
 const enableEdit = () => {
   $(".profile-input").each(function (i) {
@@ -120,6 +120,22 @@ const profilePicHandler = async (event) => {
   });
 };
 
+const hoverIn = (event) => {
+  const target = $(event.target);
+  console.log(target.data());
+  console.log("hover");
+  const profileId = Number(window.location.pathname.split("/")[2]);
+  const userId = Number(target.data("loggedIn"));
+  console.log("profileId", profileId, "userId", userId);
+  if (profileId === userId) {
+    $(".profile-pic").addClass("hover");
+  }
+};
+
+const hoverOut = (event) => {
+  $(".profile-pic").removeClass("hover");
+};
+
 const createPostHandler = async (event) => {};
 
 uploadBtns.on("click", profilePicHandler);
@@ -130,3 +146,5 @@ $("#profile-form").on("submit", profileEditHandler);
 $("#edit-icon").on("click", enableEditHandler);
 $("#cancel-profile").on("click", cancelEditHandler);
 $("#create-post").on("click", createPostHandler);
+
+imageEl.hover(hoverIn, hoverOut);

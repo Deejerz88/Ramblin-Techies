@@ -23,6 +23,9 @@ router.get("/:id", async (req, res) => {
   blog.updatedAt = DateTime.fromJSDate(blog.updatedAt).toLocaleString(
     DateTime.DATETIME_MED_WITH_SECONDS
   );
+  blog.createdAt = DateTime.fromJSDate(blog.createdAt).toLocaleString(
+      DateTime.DATETIME_MED_WITH_SECONDS
+  );
   // blog.author = author.name;
   const user = await User.findByPk(req.session.userId, {
     raw: true,

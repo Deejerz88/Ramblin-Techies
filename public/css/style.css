@@ -114,6 +114,7 @@ aside {
   resize: none;
 }
 
+
 #profile-bio:disabled {
   border-bottom: none;
 }
@@ -139,14 +140,29 @@ i {
   height: 75vh;
 }
 
+.hover{
+  transition: 0.2s all ease-in-out;
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+
+
+
 .blogpost,
 .comments-card,
 #prof-container,
-.modal-content {
+.modal-content,
+.toast,.toast-header {
   background-color: var(--transparent);
   border-radius: var(--border-radius);
   border-color: var(--primary);
   color: white;
+}
+
+.toast-header{
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .blog-hr {
@@ -156,6 +172,7 @@ i {
 .blog-img,
 .comment-img {
   width: 35px;
+  padding-top: 10px;
 }
 
 .comment-img {
@@ -168,13 +185,6 @@ a {
 
 .blog-img + p {
   display: inline;
-}
-
-.truncate {
-  width: 250px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .blog-btn {
@@ -202,32 +212,75 @@ a {
 .dash-img-col {
   width: 100px;
 }
-/* 
-#profile-img{
-  width: 300px
-} */
-/* @media screen and (min-width: 768px) {
-  #profile-image{
-    width: 25%
-  }
-  
-} */
+.blog-title {
+  margin-top: 20px;
+}
 
+.blog-title,
+.blog-content {
+  color: white;
+  resize: none;
+}
+.blog-title:not(:disabled),
+.blog-content:not(:disabled) {
+  color: black;
+  resize: vertical;
+}
+
+.blog-content:not(:disabled) {
+  width: 99%;
+}
+
+.container textarea{
+  box-sizing: border-box;
+  height: 100%
+}
+
+.modal-content {
+  height: 70vh;
+  min-height: 570px
+}
+
+#new-blog-content{
+  resize: none;
+  transition: .2s all ease-in-out;
+}
+
+.toast{
+  position: absolute;
+  top: 10vh;
+  ;
+}
+/* .blog-edit-icon{
+} */
 
 @media screen and (min-width: 1000px) {
   #profile-image {
     width: 20%;
   }
-
-@media screen and (min-width: 1600px) {
-  #profile-image {
-    width: 13%;
-  }
 }
 
-@media screen and (min-width: 2350px) {
-  #profile-image {
-    width: 10%;
+  @media screen and (min-width: 1600px) {
+    #profile-image {
+      width: 13%;
+    }
   }
-}
-}
+
+  @media screen and (min-width: 2350px) {
+    #profile-image {
+      width: 10%;
+    }
+  }
+
+  @media screen and (min-height: 900px){
+    #new-blog-content {
+      height: 20em
+    }
+  }
+
+    @media screen and (min-height: 1200px){
+    #new-blog-content {
+      height: 30em
+    }
+  }
+

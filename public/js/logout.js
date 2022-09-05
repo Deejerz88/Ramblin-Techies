@@ -11,7 +11,8 @@ const logout = async () => {
       document.location.reload();
     }
   } else {
-    alert("Failed to log out.");
+    $('.toast-body').text("Failed to log out")
+    $('.toast').toast('show');
   }
 };
 

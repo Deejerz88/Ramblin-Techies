@@ -1,0 +1,129 @@
+  <div id="prof-container" class="container-fluid border p-3 rounded">
+    <div class="row w-100">
+      <div id='profile-image' class="col-2">
+        <img
+          id="profile-pic-{{id}}"
+          data-logged-in="{{userId}}"
+          class="img-fluid rounded mb-3 profile-pic "
+          onerror="this.onerror=null; this.src='https://via.placeholder.com/250'"
+          src="/images/uploads/profile-{{id}}.jpg"
+          alt=""
+        />
+        <input
+          id="image-upload"
+          type="file"
+          name="profile_photo"
+          placeholder="Photo"
+          required=""
+          hidden
+          capture
+        />
+        <div id="upload-btns" class="mx-3" hidden>
+          <button class="btn blog-btn" id="img-save">Save</button>
+          <button class="btn blog-btn" id="img-cancel">Cancel</button>
+        </div>
+      </div>
+      <div id='profile-info' class="col-8">
+        <form id="profile-form" class="align-items-start">
+          <div class="row mb-3">
+            <label class="col-2 col-form-label" for="profile-name">
+              <b>Name:</b>
+            </label>
+            <div class="col">
+              <input
+                type="text"
+                class="form-control-plaintext profile-input"
+                id="profile-name"
+                placeholder="Enter name"
+                value="{{name}}"
+                disabled
+              />
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label class="col-2 col-form-label" for="profile-email">
+              <b>Email:</b>
+            </label>
+            <div class="col">
+              <input
+                type="text"
+                class="form-control-plaintext profile-input"
+                id="profile-email"
+                placeholder="Enter email"
+                value="{{email}}"
+                disabled
+              />
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label class="col-2 col-form-label" for="profile-github">
+              <b>Github:</b>
+            </label>
+            <div class="col">
+              <input
+                type="text"
+                class="form-control-plaintext profile-input"
+                id="profile-github"
+                placeholder="Github Username"
+                value="{{github}}"
+                disabled
+              />
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label class="col-2 col-form-label" for="profile-slack">
+              <b>Slack:</b>
+            </label>
+            <div class="col">
+              <input
+                type="text"
+                class="form-control-plaintext profile-input"
+                id="profile-slack"
+                placeholder="Slack Username"
+                value="{{slack}}"
+                disabled
+              />
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label class="col-2 col-form-label" for="profile-linkedin">
+              <b>LinkedIn:</b>
+            </label>
+            <div class="col">
+              <input
+                type="text"
+                class="form-control-plaintext profile-input"
+                id="profile-linkedin"
+                placeholder="LinkedIn Username"
+                value="{{linkedin}}"
+                disabled
+              />
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label class="col-2 col-form-label" for="profile-bio">
+              <b>Bio:</b>
+            </label>
+            <div class="col">
+              <textarea
+                type="textarea"
+                rows="4"
+                class="form-control-plaintext profile-input w-100"
+                id="profile-bio"
+                placeholder="Tell us about yourself!"
+                disabled
+              >{{bio}}</textarea>
+            </div>
+          </div>
+
+          <div id="profile-buttons" class="row w-50" hidden>
+            <button type="submit" class="col btn blog-btn m-3">Apply</button>
+            <button id="cancel-profile" class="col btn blog-btn m-3">Cancel</button>
+          </div>
+        </form>
+      </div>

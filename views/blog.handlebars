@@ -1,35 +1,6 @@
-<div class="container-fluid">
-  <div class="blogpost card mb-3">
-    <div class="card-body">
-      <div
-        class="container-fluid justify-content-between align-items-end d-flex"
-      >
-        <h3 class="card-title">
-          {{blog.title}}
-        </h3>
-        <a href="/dashboard/{{blog.user_id}}">
-          <img
-            class="blog-img"
-            src="/images/uploads/profile-{{blog.user_id}}.jpg"
-          />
-          <p class="card-text align-bottom">
-            <small class="text-muted">
-              {{blog.author}}
-            </small>
-          </p>
-        </a>
-      </div>
-      <hr class="blog-hr" />
-      <p class="m-3 card-text">
-        {{blog.content}}
-      </p>
-      <p class="text-end card-text">
-        <small class="text-muted">
-          -Updated: {{blog.updatedAt}}
-        </small>
-      </p>
-    </div>
-  </div>
+  {{#with blog}}
+  {{> blogs userId=../userId}}
+  {{/with}}
 
   <div class="comments-card card">
     <div class="card-body">

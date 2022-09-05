@@ -1,0 +1,50 @@
+    <div id='blog-{{id}}' class="blogpost card mb-3">
+      <div class="card-body pt-0">
+        <div
+          class="container-fluid justify-content-between d-flex pe-0"
+        >
+          <h3 class="card-title">
+            <input id='blog-title-{{id}}'class='blog-title form-control-plaintext' type='text' value="{{title}}" disabled/>
+          </h3>
+          <div class="d-flex flex-column justify-content-between">
+            <div class="align-self-end mt-3">
+          {{#if (check_id user_id userId)}}
+            <i id='blog-edit-{{id}}' class="bi m-2 bi-pencil-square blog-edit"></i>
+            <i id="'blog-delete-{{id}}" class="bi bi-x-square-fill blog-delete"></i>
+          {{/if}}
+          </div>
+          <a class='align-self-end' href="/dashboard/{{user_id}}">
+            <img
+              class="blog-img"
+              src="/images/uploads/profile-{{user_id}}.jpg"
+            />
+            <p class="card-text align-bottom">
+              <small class="text-muted">
+                {{author}}
+              </small>
+            </p>
+          </a>
+          {{log 'user_id' user_id}} {{log 'userId' userId}}
+          </div>
+        </div>
+        <hr class="blog-hr" />
+        <textarea id='blog-content-{{id}}' type="text" class="m-3 blog-content card-text form-control-plaintext" disabled>{{content}}</textarea>
+        <div
+          class="d-flex container-fluid justify-content-between align-items-end"
+        >
+          <a id='read-more-{{id}}' href="/blog/{{id}}" class="btn blog-btn">
+            Read More
+          </a>
+          <span id="update-blog-btns-{{id}}" hidden>
+            <button id='blog-update-{{id}}' class="btn blog-btn">Update</button>
+            <button id='blog-cancel-{{id}}' class="btn blog-btn">Cancel</button>
+          </span>
+          <p class="card-text">
+            <small class="text-muted">
+              -Created: {{createdAt}} |
+              Updated: {{updatedAt}}
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>

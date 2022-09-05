@@ -23,7 +23,8 @@ const loginFormHandler = async (event) => {
         document.location.replace(`/dashboard/${id}`);
       }
     } else {
-      alert("Incorrect email or password. Please try again!");
+      $('.toast-body').text("Incorrect email or password. Please try again!")
+      $('.toast').toast('show');
     }
   }
 };
@@ -47,7 +48,8 @@ const signupFormHandler = async (event) => {
       const id = data.id;
       document.location.replace(`/dashboard/${id}`);
     } else {
-      alert("User already exists. Please try again!");
+      $('.toast-body').text("User already exists. Please try again!")
+      $('.toast').toast('show');
     }
   }
 };
