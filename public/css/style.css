@@ -272,15 +272,4 @@ a {
     }
   }
 
-  @media screen and (min-height: 900px){
-    #new-blog-content {
-      height: 20em
-    }
-  }
-
-    @media screen and (min-height: 1200px){
-    #new-blog-content {
-      height: 30em
-    }
-  }
 
