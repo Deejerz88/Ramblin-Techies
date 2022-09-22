@@ -46,7 +46,7 @@ router.post("/login", async (req, res) => {
     if (!dbUserData) {
       console.log("No user found");
       res
-        .status(400)
+        .status(401)
         .json({ message: "Incorrect email or password. Please try again!" });
       return;
     }
@@ -55,7 +55,7 @@ router.post("/login", async (req, res) => {
 
     if (!validPassword) {
       res
-        .status(400)
+        .status(401)
         .json({ message: "Incorrect email or password. Please try again!" });
       return;
     }
@@ -88,7 +88,6 @@ router.post("/image/:id", (req, res) => {
   const id = req.params.id;
   const image = req.body.newImg;
   const data = image.data.replace(/^data:image\/(.+);base64,/, "");
-  const type = image.type;
   fs.writeFile(
     `./public/images/uploads/profile-${id}.jpg`,
     data,

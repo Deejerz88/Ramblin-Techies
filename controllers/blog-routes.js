@@ -14,19 +14,13 @@ router.get("/:id", async (req, res) => {
     where: { blogpost_id: id },
     include: [{ model: User }],
   });
-  console.log('>>>>>>>>comments', comments)
   blog.comments = comments;
-  console.log('blog', blog)
-  // const author = await User.findByPk(blog.user_id, {
-  //   raw: true,
-  // });
   blog.updatedAt = DateTime.fromJSDate(blog.updatedAt).toLocaleString(
     DateTime.DATETIME_MED_WITH_SECONDS
   );
   blog.createdAt = DateTime.fromJSDate(blog.createdAt).toLocaleString(
       DateTime.DATETIME_MED_WITH_SECONDS
   );
-  // blog.author = author.name;
   const user = await User.findByPk(req.session.userId, {
     raw: true,
   });

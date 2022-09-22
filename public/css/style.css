@@ -10,13 +10,15 @@
   --transparent: rgba(0, 0, 0, 0.8);
 }
 
+html{
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: Arial;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  justify-content: flex-start;
+  padding: 0;
   background-color: var(--primary);
   background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/b9a21791534383.5e341720a5140.jpg");
   background-size: cover;
@@ -28,15 +30,8 @@ header {
   background-color: var(--transparent);
 }
 
-/* main {
-  display: flex;
-  flex-wrap: wrap;
-  flex-grow: 1;
-} */
-
 #main-nav {
   display: flex;
-  /* background-color: #3d48df */
 }
 
 #main-nav a {
@@ -58,6 +53,10 @@ aside {
   color: var(--light);
 }
 
+/* login/signup */
+.login-container {
+  height: 75vh;
+}
 .tab-content {
   border-left: 1px solid var(--primary);
   border-right: 1px solid var(--primary);
@@ -84,6 +83,7 @@ aside {
   color: white;
 }
 
+/* profile */
 .profile-label {
   width: 75px;
 }
@@ -136,9 +136,7 @@ i {
   transition: 0.2s all ease-in-out;
 }
 
-.login-container {
-  height: 75vh;
-}
+
 
 .hover{
   transition: 0.2s all ease-in-out;
@@ -146,9 +144,7 @@ i {
   opacity: 0.75;
 }
 
-
-
-
+/* blog */
 .blogpost,
 .comments-card,
 #prof-container,
@@ -160,10 +156,7 @@ i {
   color: white;
 }
 
-.toast-header{
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
+
 
 .blog-hr {
   border-color: var(--primary);
@@ -192,6 +185,8 @@ a {
   color: white;
 }
 
+
+
 .blog-btn:hover {
   background-color: var(--primary);
   color: white;
@@ -199,14 +194,6 @@ a {
 
 .comment-user {
   width: 100px;
-}
-
-.modal-header {
-  border-bottom: 1px solid var(--primary);
-}
-
-.modal-footer {
-  border-top: 1px solid var(--primary);
 }
 
 .dash-img-col {
@@ -236,8 +223,22 @@ a {
   height: 100%
 }
 
+/* create blog */
+.toast-header{
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.modal-header {
+  border-bottom: 1px solid var(--primary);
+}
+
+.modal-footer {
+  border-top: 1px solid var(--primary);
+}
+
 .modal-content {
-  height: 70vh;
+  height: 50vh;
   min-height: 570px
 }
 
@@ -251,8 +252,7 @@ a {
   top: 10vh;
   ;
 }
-/* .blog-edit-icon{
-} */
+
 
 @media screen and (min-width: 1000px) {
   #profile-image {

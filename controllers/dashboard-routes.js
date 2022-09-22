@@ -19,7 +19,6 @@ router.get("/:id", async (req, res) => {
     );
   });
   userData.blogs = blogs;
-  console.log("userData", userData);
   res.render("dashboard", {
     userData,
     loggedIn: req.session.loggedIn,

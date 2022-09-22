@@ -4,7 +4,6 @@ const { DateTime } = require("luxon");
 
 router.get("/login", (req, res) => {
   const { blogId } = req.query || null;
-
   if (req.session.logged_in) {
     if (blogId) {
       res.redirect(`/blogpost/${blogId}`);
@@ -31,12 +30,10 @@ router.get("/", async (req, res) => {
       blog.createdAt = DateTime.fromJSDate(blog.createdAt).toLocaleString(
         DateTime.DATETIME_MED_WITH_SECONDS
       );
-      console.log(blog.user_id);
       const author = await User.findByPk(blog.user_id, { raw: true });
       blog.author = author.name;
     });
 
-    console.log(blogs[0]);
     req.session.save(() => {
       if (req.session.countVisit) {
         req.session.countVisit++;

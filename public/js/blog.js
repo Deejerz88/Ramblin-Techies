@@ -1,25 +1,21 @@
 commentBtn = $("#comment-btn");
 
 commentBtn.click(function () {
-  console.log("commentBtn", commentBtn);
   const user = commentBtn.data("user");
   const blogId = commentBtn.data("blog");
   const userId = user.id;
   const now = new Date().toLocaleString().replace(",", "<br/>");
 
-  console.log("user", typeof user);
 
-  console.log(blogId);
   const content = $("#comment").val();
   const commentData = {
     content,
     user_id: userId,
     blogpost_id: blogId,
   };
-  console.log("commentData", commentData);
   fetch(`/api/comments`, {
     method: "POST",
-    body: JSON.stringify({  commentData  }),
+    body: JSON.stringify({ commentData }),
     headers: {
       "Content-Type": "application/json",
     },
@@ -50,4 +46,3 @@ commentBtn.click(function () {
   $("#comment").val("");
 });
 
-//<img src="/images/uploads/profile-${userId}.jpg"

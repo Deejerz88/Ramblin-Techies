@@ -122,11 +122,8 @@ const profilePicHandler = async (event) => {
 
 const hoverIn = (event) => {
   const target = $(event.target);
-  console.log(target.data());
-  console.log("hover");
   const profileId = Number(window.location.pathname.split("/")[2]);
   const userId = Number(target.data("loggedIn"));
-  console.log("profileId", profileId, "userId", userId);
   if (profileId === userId) {
     $(".profile-pic").addClass("hover");
   }

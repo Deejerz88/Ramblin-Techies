@@ -22,6 +22,9 @@ const sess = {
   store: new SequelizeStore({
     db: sequelize,
   }),
+  cookie: {
+    expires: 10 * 60000,
+  }
 };
 
 app.use(session(sess));

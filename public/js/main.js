@@ -2,41 +2,24 @@ const createBlogEl = $("#create-blog");
 const blogEditEl = $(".blog-edit");
 const blogDeleteEl = $(".blog-delete");
 
-
 const createBlogHandler = async (event) => {
   event.preventDefault();
-  console.log("new post", event);
-
   const title = $("#new-blog-title").val().trim();
   const content = $("#new-blog-content").val().trim();
   const user_id = window.location.pathname.split("/")[2];
-
   if (title && content) {
     const response = await fetch("/api/blogposts", {
       method: "POST",
       body: JSON.stringify({ title, content }),
       headers: { "Content-Type": "application/json" },
     });
-
     if (response.ok) {
       document.location.replace(`/dashboard/${user_id}`);
     } else {
-      $('.toast-body').text("Failed to create blog")
-      $('.toast').toast('show');
+      $(".toast-body").text("Failed to create blog");
+      $(".toast").toast("show");
     }
   }
-};
-
-const updateBlogHandler = async (event) => {
-  event.preventDefault();
-  const target = $(event.target);
-  const blogId = target.attr("id").split("-")[2];
-  console.log("blogId", blogId);
-  const titleEl = $(`#blog-title-${blogId}`);
-  const contentEl = $(`#blog-content-${blogId}`);
-  console.log(titleEl);
-
-  console.log("target val");
 };
 
 const editBlogHandler = async (event) => {
@@ -82,8 +65,8 @@ const editBlogHandler = async (event) => {
         if (response.ok) {
           editBlogHandler(event);
         } else {
-          $('.toast-body').text("Failed to update blog")
-          $('.toast').toast('show');
+          $(".toast-body").text("Failed to update blog");
+          $(".toast").toast("show");
         }
       }
     });
@@ -98,11 +81,19 @@ const deleteBlogHandler = async (event) => {
   const response = await fetch(`/api/blogposts/${blogId}`, {
     method: "DELETE",
   });
-}
+};
 
 createBlogEl.on("click", createBlogHandler);
 blogEditEl.on("click", editBlogHandler);
 blogDeleteEl.on("click", deleteBlogHandler);
+
+$(function () {
+  $(".blog-content").each(function () {
+    $(this).height($(this).prop("scrollHeight"));
+  });
+});
+
 $(document).ready(function () {
   $(".toast").toast();
-})
+});
+
