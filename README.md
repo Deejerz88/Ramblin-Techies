@@ -15,9 +15,6 @@ Blog about your favorite developer tools, libraries, frameworks, and more!
     - [Blog Page](#blog-page)
   - [Questions](#questions)
   
-## Link
-  - [Live App](https://ramblin-techs.herokuapp.com)
-
 ## Usage
 
 To use this appliction: 
